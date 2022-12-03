@@ -1,14 +1,15 @@
 {
   "name": "yeeh1-revolt",
   "version": "1.0.0",
-  "description": "YEEH1, but for Revolt",
+  "description": "",
   "main": "index.js",
-  "type": "commonjs",
   "scripts": {
     "start": "node --experimental-specifier-resolution=node index.js",
     "test": "nodemon --experimental-specifier-resolution=node index.js"
   },
-  "license": "MIT",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "dependencies": {
     "dotenv": "^16.0.3",
     "revolt.js": "^6.0.19"
