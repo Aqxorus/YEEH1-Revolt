@@ -1,8 +1,9 @@
-require('dotenv').config();
 const { Client } = require('revolt.js');
-const prefix = process.env.PREFIX;
 
 const client = new Client();
+
+client.config = require('./config.json');
+const { token, prefix } = client.config;
 
 client.on('ready', () => {
   console.log('The bot is ready');
@@ -22,8 +23,11 @@ client.on('message', (msg) => {
   }
 });
 
-try {
-  client.loginBot(process.env.TOKEN);
-} catch (error) {
-  console.error(error);
-}
+client.loginBot(token).catch(async (err) => {
+  console.error('Something happened while logging in the client:', err),
+    process.exit(1);
+});
+
+process.on('unhandledRejection', async (reason, p) => {
+  console.error(reason, 'Unhandled Rejection at Promise', p);
+});
