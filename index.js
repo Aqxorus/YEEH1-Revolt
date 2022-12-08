@@ -3,6 +3,7 @@ const { Client } = require('revolt.js');
 const client = new Client();
 
 client.config = require('./config.json');
+
 const { token, prefix } = client.config;
 
 client.on('ready', () => {
